@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /learn/
+Disallow: /certificate/
+Disallow: /cart
+Disallow: /login
+Disallow: /signup
+Disallow: /forgot
+Disallow: /reset
+Disallow: /complete
+
+Sitemap: https://gciindia.com/sitemap.xml

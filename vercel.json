@@ -1,0 +1,106 @@
+{
+ "redirects": [
+  {
+   "source": "/free",
+   "destination": "/free-courses/",
+   "permanent": true
+  },
+  {
+   "source": "/courses/all",
+   "destination": "/courses/",
+   "permanent": true
+  },
+  {
+   "source": "/home",
+   "destination": "/",
+   "permanent": true
+  }
+ ],
+ "rewrites": [
+  {
+   "source": "/admin",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/admin/:path*",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/dashboard",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/profile",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/login",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/signup",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/forgot",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/reset",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/complete",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/cart",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/learn/:path*",
+   "destination": "/app.html"
+  },
+  {
+   "source": "/certificate/:path*",
+   "destination": "/app.html"
+  }
+ ],
+ "headers": [
+  {
+   "source": "/(.*)",
+   "headers": [
+    {
+     "key": "X-Content-Type-Options",
+     "value": "nosniff"
+    },
+    {
+     "key": "X-Frame-Options",
+     "value": "SAMEORIGIN"
+    },
+    {
+     "key": "Referrer-Policy",
+     "value": "strict-origin-when-cross-origin"
+    }
+   ]
+  },
+  {
+   "source": "/assets/(.*)",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=31536000, immutable"
+    }
+   ]
+  },
+  {
+   "source": "/app.html",
+   "headers": [
+    {
+     "key": "X-Robots-Tag",
+     "value": "noindex, nofollow"
+    }
+   ]
+  }
+ ]
+}

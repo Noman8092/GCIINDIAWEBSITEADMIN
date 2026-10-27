@@ -1,0 +1,33 @@
+# GCI India – Apache / cPanel
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Force HTTPS (uncomment after SSL is active)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Old URLs
+RewriteRule ^free/?$ /free-courses/ [R=301,L]
+RewriteRule ^courses/all/?$ /courses/ [R=301,L]
+# Private app routes -> app shell
+RewriteRule ^(admin|dashboard|profile|login|signup|forgot|reset|complete|cart)/?$ /app.html [L]
+RewriteRule ^(learn|certificate|admin)/.+$ /app.html [L]
+</IfModule>
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+<FilesMatch "app\.html$">
+Header set X-Robots-Tag "noindex, nofollow"
+</FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType application/javascript "access plus 1 hour"
+</IfModule>

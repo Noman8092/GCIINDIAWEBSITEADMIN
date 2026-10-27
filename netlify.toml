@@ -1,0 +1,109 @@
+[build]
+  publish = "."
+  command = "python3 build/build.py || echo build-skipped"
+
+[[redirects]]
+  from = "/free"
+  to = "/free-courses/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/courses/all"
+  to = "/courses/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/signup"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/forgot"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/reset"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/complete"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/cart"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/learn/*"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/certificate/*"
+  to = "/app.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/app.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
